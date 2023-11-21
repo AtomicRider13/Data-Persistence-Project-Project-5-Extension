@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject[] prefabs;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI playerName;
+
+    public TextMeshProUGUI highScore;
     public GameObject titleScreen;
     public TextMeshProUGUI livesText;
     public AudioSource gameMusic;
@@ -26,7 +29,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        playerName.text = "Player: " + MainManager.Instance.playerName;
+        highScore.text = "High Score: " + MainManager.Instance.highScore;
         livesText.text = "Lives: " + lives;
         scoreText.text = "Score: " + score;
         
@@ -40,6 +44,13 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Space bar pressed");
                 PauseMenu();
             }
+        highScore.text = "High Score: " + MainManager.Instance.highScore;
+
+        if (score > MainManager.Instance.highScore)
+        {
+            MainManager.Instance.highScore = score;
+            MainManager.Instance.highScoreName = MainManager.Instance.playerName;
+        }
     }
 
     IEnumerator SpawnTarget()
@@ -60,7 +71,9 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore(int scoreToAdd)
     {
+       
         score += scoreToAdd;
+        MainManager.Instance.score = score;
         scoreText.text = "Score: " + score;
     }
 
@@ -83,6 +96,12 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BackToMainMenu()
+    {
+        
+        SceneManager.LoadScene(0);
     }
 
     public void StartGame(int difficulty)
