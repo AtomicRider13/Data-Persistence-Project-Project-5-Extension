@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System.Runtime.InteropServices;
-using Microsoft.Unity.VisualStudio.Editor;
+
+
 
 public class GameManager : MonoBehaviour
 {

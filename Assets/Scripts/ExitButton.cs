@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class ExitButton : MonoBehaviour
 {
 
-    [SerializeField] private Button beginButton;
+    [SerializeField] private Button exitButton;
     // Start is called before the first frame update
     void Start()
     {
-        beginButton.onClick.AddListener(ExitPlay);
+        exitButton.onClick.AddListener(ExitPlay);
 
     }
 

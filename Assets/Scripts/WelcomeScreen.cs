@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Palmmedia.ReportGenerator.Core;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,5 +54,7 @@ public class WelcomeScreen : MonoBehaviour
     {
         playerScore.text = highScoreName + " - " + highScoreToBeat;
     }
+
+  
     
 }
